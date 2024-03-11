@@ -3,7 +3,7 @@
 
 
 def pascal_triangle(n):
-    """ This evaluates the pascal triangle 
+    """ This evaluates the pascal triangle
     args: n(integer)
     return: a list of lists of integers
     """
