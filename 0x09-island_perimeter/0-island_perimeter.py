@@ -9,7 +9,7 @@ def island_perimeter(grid):
     cols = len(grid[0])
 
     p = 0
-    con = 0
+    cons = 0
 
     for x in range(0, rows):
         for y in range(0, cols):
@@ -17,7 +17,7 @@ def island_perimeter(grid):
                 p += 4
 
                 if x != 0 and grid[x - 1][y]:
-                    con += 1
+                    cons += 1
                 if y != 0 and grid[x][y - 1]:
-                    con += 1
-    return p - (con * 2)
+                    cons += 1
+    return p - (cons * 2)
