@@ -1,0 +1,42 @@
+#!/usr/bin/python3
+'''Prime Game Problem'''
+
+
+def is_primes(n):
+    '''Returns list of prime numbers between 1 and n inclusive
+       Args:
+        n (int): upper boundary of range. lower boundary is always 1
+    '''
+    prime = []
+    game = [True] * (n + 1)
+    for p in range(2, n + 1):
+        if (game[p]):
+            prime.append(p)
+            for i in range(p, n + 1, p):
+                game[i] = False
+    return prime
+
+
+def isWinner(x, nums):
+    '''
+    This determines the winner of the prime game
+    Args:
+        x: number of rounds of the game
+        nums: upper limit of range for each round
+    Return:
+        Name of winner (Maria or Ben) or None if winner cannot be found
+    '''
+    if x is None or nums is None or x == 0 or nums == []:
+        return None
+    Ben = Maria = 0
+    for e in range(x):
+        prime = is_primes(nums[e])
+        if len(prime) % 2 == 0:
+            Ben += 1
+        else:
+            Maria += 1
+    if Maria > Ben:
+        return 'Maria'
+    elif Ben > Maria:
+        return 'Ben'
+    return None
